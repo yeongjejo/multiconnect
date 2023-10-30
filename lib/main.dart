@@ -219,6 +219,7 @@ class _MainScreenState extends State<MainScreen> {
 
 
 
+  // 서바스 시작
   Future<void> startService(DiscoveredDevice device) async {
     await flutterReactiveBle.discoverAllServices(device.id);
     var services = await flutterReactiveBle.getDiscoveredServices(device.id);
@@ -241,9 +242,9 @@ class _MainScreenState extends State<MainScreen> {
 
         if (temp2[0] == "00000002") {
           c.isWritableWithoutResponse;
+          c.read()
         }
       }
-
       debugPrint('서비스요 : $service');
       debugPrint('서비스요 : ${service.id}');
       debugPrint('characteristics : $characteristics');
